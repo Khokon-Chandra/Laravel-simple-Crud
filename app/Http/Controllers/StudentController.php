@@ -18,10 +18,10 @@ class StudentController extends Controller
         if($request->method() === "POST"){
             $data = [
                 $request->input("name"),
-                $request->input("class"),
+                $request->input("roll"),
                 $request->input("email")
             ];
-            if(DB::insert('insert into students (name, class, email) values (?, ?, ?)', $data)){
+            if(DB::insert('insert into students (name, roll, email) values (?, ?, ?)', $data)){
                 return "Success fully inserted";
             }else{
                 return "Data insertion Faild !!";
@@ -47,15 +47,17 @@ class StudentController extends Controller
     {
         if($request->method() == "POST"){
             $name = $request->input("name");
-            $class = $request->input("class");
+            $roll = $request->input("roll");
             $email = $request->input("email");
             $id = $request->input("updateId");
             
-            $result = DB::update("UPDATE `students` SET `name` = ?, `class` = ?, `email` = ? WHERE id = ?", [$name,$class,$email,$id]);
+            $result = DB::update("UPDATE `students` SET `name` = ?, `roll` = ?, `email` = ? WHERE id = ?", [$name,$roll,$email,$id]);
 
             return $result?"Update Successful":"Update Faild";
         }
     }
+
+
 
     public function delete(Request $request)
     {
@@ -68,11 +70,6 @@ class StudentController extends Controller
         
     }
 
-
-    public function selectAll()
-    {
-        return json_encode(DB::table('students')->pluck("name"));
-    }
 
 
 

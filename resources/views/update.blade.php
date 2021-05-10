@@ -17,8 +17,8 @@
         <input id="email" type="email" value="{{$student->email}}" class="form-control">
     </div>
     <div class="mb-3 form-group">
-        <label>Class</label>
-        <input id="class" type="number" value="{{$student->class}}" class="form-control">
+        <label>Roll</label>
+        <input id="roll" type="number" value="{{$student->roll}}" class="form-control">
     </div>
 
     <div class="mb-3 form-group">

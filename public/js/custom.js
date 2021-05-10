@@ -28,7 +28,7 @@ function getValue(){
     return {
         name: document.querySelector("#name").value,
         email: document.querySelector("#email").value,
-        class:document.querySelector("#class").value,
+        roll:document.querySelector("#roll").value,
         updateId:document.querySelector("#updateId")?parseInt(document.querySelector("#updateId").value):""
     }
 }

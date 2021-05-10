@@ -17,8 +17,8 @@
         <input id="email" type="email" class="form-control">
     </div>
     <div class="mb-3 form-group">
-        <label>Class</label>
-        <input id="class" type="number" class="form-control">
+        <label>Roll</label>
+        <input id="roll" type="number" class="form-control">
     </div>
 
     <div class="mb-3 form-group">

@@ -12,7 +12,7 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Class</th>
+                <th>Roll</th>
                 <th>Date</th>
                 <th>Action</th>
             </tr>
@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{$student->name}}</td>
                     <td>{{$student->email}}</td>
-                    <td>{{$student->class}}</td>
+                    <td>{{$student->roll}}</td>
                     <td>{{$student->created_at}}</td>
                     <td>
                         <a href="{{url('/edit/')."/".$student->id}}">Edit</a>
