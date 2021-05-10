@@ -28,4 +28,4 @@ Route::post('/delete',[StudentController::class,'delete']);
 
 Route::resource('/photoes',PhotoController::class);
 
-Route::get('/data',[StudentController::class,'selectAll']);
+Route::get('/data',[StudentController::class,'getAll']);
