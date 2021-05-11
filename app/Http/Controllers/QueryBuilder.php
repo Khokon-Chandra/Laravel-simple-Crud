@@ -35,4 +35,11 @@ class QueryBuilder extends Controller
         return DB::table('students')->select('name','roll','email')->get();
         // return DB::table('students')->distinct()->get();
     }
+
+    public function merge()
+    {
+        $students = DB::table('students')->get();
+
+        return $students->merge(DB::table('student_marks')->get());
+    }
 }

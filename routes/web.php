@@ -34,3 +34,4 @@ Route::get('/single', [QueryBuilder::class,'singleRow']);
 Route::get('/findrow', [QueryBuilder::class,'fingRow']);
 Route::get('/pluck', [QueryBuilder::class,'silectOneColumn']);
 Route::get('/select', [QueryBuilder::class,'select']);
+Route::get('/merge', [QueryBuilder::class,'merge']);
