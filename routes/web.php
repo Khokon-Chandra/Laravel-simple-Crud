@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\QueryBuilder;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,6 @@ Route::post('/delete',[StudentController::class,'delete']);
 
 Route::resource('/photoes',PhotoController::class);
 
-Route::get('/data',[StudentController::class,'getAll']);
+Route::get('/allrow',[QueryBuilder::class,'getAll']);
+Route::get('/single', [QueryBuilder::class,'singleRow']);
+Route::get('/findrow', [QueryBuilder::class,'fingRow']);
