@@ -27,4 +27,11 @@ class QueryBuilder extends Controller
     {
         return json_encode(DB::table('students')->pluck('name','roll'));
     }
+
+    public function select()
+    {
+        
+        return DB::table('students')->select('name')->get();
+        // return DB::table('students')->select('name')->get();
+    }
 }
