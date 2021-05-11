@@ -31,7 +31,7 @@ class QueryBuilder extends Controller
     public function select()
     {
         
-        return DB::table('students')->select('name')->get();
         // return DB::table('students')->select('name')->get();
+        return DB::table('students')->distinct()->get();
     }
 }
