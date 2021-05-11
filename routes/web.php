@@ -40,3 +40,4 @@ Route::get('/merge', [QueryBuilder::class,'merge']);
 Route::get('/join', [QueryBuilder::class,'jointable']);
 
 Route::get('/insert', [QueryBuilder::class,'insert']);
+Route::get('/delete', [QueryBuilder::class,'delete']);

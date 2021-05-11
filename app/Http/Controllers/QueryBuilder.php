@@ -72,5 +72,15 @@ class QueryBuilder extends Controller
     }
 
 
+    public function delete()
+    {
+        if(DB::table('students')->where('id','=',10)->delete()){
+            return "deleted Successfully";
+        }else{
+            return "Action Faild";
+        }
+    }
+
+
 
 }
