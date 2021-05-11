@@ -38,3 +38,5 @@ Route::get('/pluck', [QueryBuilder::class,'silectOneColumn']);
 Route::get('/select', [QueryBuilder::class,'select']);
 Route::get('/merge', [QueryBuilder::class,'merge']);
 Route::get('/join', [QueryBuilder::class,'jointable']);
+
+Route::get('/insert', [QueryBuilder::class,'insert']);

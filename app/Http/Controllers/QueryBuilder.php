@@ -43,12 +43,34 @@ class QueryBuilder extends Controller
         return $students->merge(DB::table('student_marks')->get());
     }
 
+
+
     public function jointable()
     {
         // $result = DB::table('students')
         // ->leftJoin('student_marks','students.roll','=','student_marks.roll')->get();
-        $result = DB::table('students')
-        ->rightJoin('student_marks','students.roll','=','student_marks.roll')->get();
+        $result = DB::table('student_marks')
+        ->rightJoin('students','student_marks.roll','=','students.roll')->get();
         return $result;
     }
+
+
+
+    public function insert()
+    {
+        $result = DB::table('students')
+        ->insert([
+            'name'=>'Choudhury',
+            'roll'=>23,
+            'email'=>'info@gimail.com'
+        ]);
+        if($result){
+            return "Insertion successfull";
+        }else{
+            return "Row Insertion faild!!";
+        }
+    }
+
+
+
 }
