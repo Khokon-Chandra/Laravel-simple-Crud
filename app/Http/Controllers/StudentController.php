@@ -17,11 +17,11 @@ class StudentController extends Controller
     {        
         if($request->method() === "POST"){
             $data = [
-                $request->input("name"),
-                $request->input("roll"),
-                $request->input("email")
+                "name"=>$request->input("name"),
+                "roll"=>$request->input("roll"),
+                "email"=>$request->input("email")
             ];
-            if(DB::insert('insert into students (name, roll, email) values (?, ?, ?)', $data)){
+            if(DB::table('students')->insert($data)){
                 return "Success fully inserted";
             }else{
                 return "Data insertion Faild !!";
@@ -32,12 +32,14 @@ class StudentController extends Controller
 
     public function update($id)
     {
-        $data = DB::select('select * from students where id = ?', [$id]);
+        $data = DB::table('students')->where('id','=',$id)->get();
         if(empty($data)){
             header("location:".url('/404')); 
             exit();
         } 
-        return view('update',['student'=>$data[0]]);     
+        return view('update',['student'=>json_decode($data)[0]]);
+
+        
         
     }
 
@@ -46,13 +48,14 @@ class StudentController extends Controller
     public function onUpdate(Request $request)
     {
         if($request->method() == "POST"){
-            $name = $request->input("name");
-            $roll = $request->input("roll");
-            $email = $request->input("email");
-            $id = $request->input("updateId");
-            
-            $result = DB::update("UPDATE `students` SET `name` = ?, `roll` = ?, `email` = ? WHERE id = ?", [$name,$roll,$email,$id]);
-
+            $id  = $request->input("updateId");
+            $data = [
+                "name"=>$request->input("name"),
+                "roll"=>$request->input("roll"),
+                "email"=>$request->input("email")
+            ];
+           
+            $result = DB::table('students')->where('id','=',$id)->update($data);
             return $result?"Update Successful":"Update Faild";
         }
     }
@@ -63,7 +66,7 @@ class StudentController extends Controller
     {
         if($request->method() == "POST"){
             
-            $result = DB::delete('delete from students where id = ?', [$request->input("id")]);
+            $result = DB::table('students')->where('id','=',$request->input('id'))->delete();
             return $result?"Delete Successful":"Delete Faild";
             
         }
