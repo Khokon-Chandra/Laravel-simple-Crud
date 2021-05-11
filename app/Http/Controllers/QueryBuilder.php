@@ -42,4 +42,12 @@ class QueryBuilder extends Controller
 
         return $students->merge(DB::table('student_marks')->get());
     }
+
+    public function jointable()
+    {
+        $result = DB::table('students')
+        ->leftJoin('student_marks','students.roll','=','student_marks.roll');
+
+        return json_encode($result);
+    }
 }
