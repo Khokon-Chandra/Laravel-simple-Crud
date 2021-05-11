@@ -22,4 +22,9 @@ class QueryBuilder extends Controller
     {
         return json_encode(DB::table('students')->find(5));
     }
+
+    public function silectOneColumn()
+    {
+        return json_encode(DB::table('students')->pluck('name'));
+    }
 }
